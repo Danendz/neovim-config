@@ -1,0 +1,5 @@
+local plugins = require("dev.plugins")
+vim.api.nvim_create_user_command("CommentLine", plugins.commentLine, {})
+vim.api.nvim_create_user_command("CommentMultipleLines", plugins.commentMultipleLines, {})
+vim.keymap.set("n", "<leader>A", "<cmd>CommentLine<CR>")
+vim.keymap.set("v", "<leader>A", "<Esc><cmd>CommentMultipleLines<CR><CR>")
