@@ -1,5 +1,5 @@
 local lsp = require("lsp-zero")
-
+require("lspconfig").intelephense.setup({})
 lsp.preset("recommended")
 
 lsp.ensure_installed({
@@ -62,11 +62,11 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = true,
-  severity_sort = false,
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = true,
+	severity_sort = false,
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
